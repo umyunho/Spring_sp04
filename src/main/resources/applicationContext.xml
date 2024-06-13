@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dbinfo" class="com.himedia.sp04.util.DBConInfo">
+        <property name="url" value="jdbc:mysql://localhost:3306/scott" />
+        <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+        <property name="id" value="root" />
+        <property name="pw" value="adminuser" />
+    </bean>
+
+    <bean id="dbinfo2" class="com.himedia.sp04.util.DBConInfo">
+        <property name="url" value="jdbc:mysql://localhost:3306/scott" />
+        <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+        <property name="id" value="admin2" />
+        <property name="pw" value="adminuser" />
+    </bean>
+
+    <bean id="dbman" class="com.himedia.sp04.util.DbManager">
+        <constructor-arg ref="dbinfo"></constructor-arg>
+    </bean>
+
+    <bean id="studentdao" class="com.himedia.sp04.dao.StudentDao">
+        <constructor-arg ref="dbman"></constructor-arg>
+    </bean>
+
+
+
+</beans>
